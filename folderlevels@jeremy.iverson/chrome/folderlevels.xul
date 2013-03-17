@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. 
+   -
+   - Copyright 2013 Jeremy Iverson.
+-->
+<?xml-stylesheet type="text/css" href="chrome://folderlevels/content/folderlevels.css"?>
+<!DOCTYPE overlay SYSTEM "chrome://folderlevels/locale/folderlevels.dtd">
+
+<overlay id="folderlevels-overlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+  <window id="messengerWindow">
+    <script type="application/javascript" 
+            src="chrome://folderlevels/content/folderlevels.js"/>
+    
+    <!-- Add a context menu for the folders pane. -->
+    <menupopup id="folderPaneContext">
+      <menu id="folderPaneContext-folderlevels" 
+            class="menu-iconic" 
+            label="Folder Level"
+            accesskey="L"
+            insertafter="folderPaneContext-favoriteFolder">
+        <menupopup id="folderLevelPopup">
+          <menuitem class="menuitem" type="radio" name="level" value="10" id="folderlevel-none" label="None" accesskey="n"/>
+          <menuseparator/>
+          <menuitem class="menuitem" type="radio" name="level" value="1" id="folderlevel-1" label="1" accesskey="1"/>
+          <menuitem class="menuitem" type="radio" name="level" value="2" id="folderlevel-2" label="2" accesskey="2"/>
+          <menuitem class="menuitem" type="radio" name="level" value="3" id="folderlevel-3" label="3" accesskey="3"/>
+          <menuitem class="menuitem" type="radio" name="level" value="4" id="folderlevel-4" label="4" accesskey="4"/>
+          <menuitem class="menuitem" type="radio" name="level" value="5" id="folderlevel-5" label="5" accesskey="5"/>
+          <menuitem class="menuitem" type="radio" name="level" value="6" id="folderlevel-6" label="6" accesskey="6"/>
+          <menuitem class="menuitem" type="radio" name="level" value="7" id="folderlevel-7" label="7" accesskey="7"/>
+          <menuitem class="menuitem" type="radio" name="level" value="8" id="folderlevel-8" label="8" accesskey="8"/>
+          <menuitem class="menuitem" type="radio" name="level" value="9" id="folderlevel-9" label="9" accesskey="9"/>
+        </menupopup>
+      </menu>
+    </menupopup>
+  </window>
+ 
+  <!-- Add "Folder Levels" as an option in the View-Folders submenu. --> 
+  <menupopup id="menu_FolderViewsPopup">
+    <menuitem class="menuitem" id="viewFoldersFolderLevels" type="radio" name="viewmessages" label="Folder Levels" accesskey="v" oncommand="FolderLevels.refreshFolderView()" />
+  </menupopup>
+  
+  <!-- Add "Folder Levels" menu inside the main View menu. -->
+  <menupopup id="menu_View_Popup" >
+    <menu id="currentFolderLevelMenu" class="menu-iconic" label="Folder Level"
+          insertafter="menu_FolderViews"
+          accesskey="v">
+      <menupopup id="currentFolderLevelPopup">
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="1" id="currentlevel-1" label="1" accesskey="1" oncommand="FolderLevels.setCurrentFolderLevel(1)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="2" id="currentlevel-2" label="2" accesskey="2" oncommand="FolderLevels.setCurrentFolderLevel(2)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="3" id="currentlevel-3" label="3" accesskey="3" oncommand="FolderLevels.setCurrentFolderLevel(3)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="4" id="currentlevel-4" label="4" accesskey="4" oncommand="FolderLevels.setCurrentFolderLevel(4)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="5" id="currentlevel-5" label="5" accesskey="5" oncommand="FolderLevels.setCurrentFolderLevel(5)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="6" id="currentlevel-6" label="6" accesskey="6" oncommand="FolderLevels.setCurrentFolderLevel(6)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="7" id="currentlevel-7" label="7" accesskey="7" oncommand="FolderLevels.setCurrentFolderLevel(7)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="8" id="currentlevel-1" label="8" accesskey="8" oncommand="FolderLevels.setCurrentFolderLevel(8)"/>
+        <menuitem class="menuitem" type="radio" name="currentLevel" value="9" id="currentlevel-9" label="9" accesskey="9" oncommand="FolderLevels.setCurrentFolderLevel(9)"/>
+        <menuseparator/>
+        <menuitem class="menuitem" type="checkbox" value="onlyUnread" id="folderlevels-unreadOnly" label="Only Unread" accesskey="u" oncommand="FolderLevels.setOnlyUnread()"/>
+      </menupopup>
+    </menu>
+  </menupopup>
+  
+  <!-- Shortcut keys -->
+  <keyset>
+    <key key="1" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(1)"/>
+    <key key="2" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(2)"/>
+    <key key="3" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(3)"/>
+    <key key="4" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(4)"/>
+    <key key="5" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(5)"/>
+    <key key="6" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(6)"/>
+    <key key="7" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(7)"/>
+    <key key="8" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(8)"/>
+    <key key="9" modifiers="alt" oncommand="FolderLevels.setCurrentFolderLevel(9)"/>
+    <key key="u" oncommand="FolderLevels.setOnlyUnread()"/>
+  </keyset>
+  
+</overlay>

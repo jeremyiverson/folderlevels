@@ -1,0 +1,3 @@
+content folderlevels chrome/
+locale folderlevels en-US locale/en-US/
+overlay chrome://messenger/content/messenger.xul chrome://folderlevels/content/folderlevels.xul
